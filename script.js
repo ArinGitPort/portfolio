@@ -167,14 +167,33 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Toggle theme on button click
   darkModeToggle.addEventListener('click', () => {
+    // Get the current theme
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    // Add transition effect
+    const iconSvg = darkModeToggle.querySelector('svg');
     
-    // Update the icon
-    updateDarkModeIcon();
+    // Animate icon out
+    iconSvg.classList.add('toggle-icon-transition-exit');
+    
+    setTimeout(() => {
+      // Set the new theme
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update the icon
+      updateDarkModeIcon();
+      
+      // Reset exit class and add enter class
+      iconSvg.classList.remove('toggle-icon-transition-exit');
+      iconSvg.classList.add('toggle-icon-transition-enter');
+      
+      // Remove enter class after animation completes
+      setTimeout(() => {
+        iconSvg.classList.remove('toggle-icon-transition-enter');
+      }, 500);
+    }, 250);
   });
   
   function updateDarkModeIcon() {
@@ -186,6 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
       iconSvg.innerHTML = `
         <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
       `;
+      darkModeToggle.setAttribute('title', 'Switch to dark mode');
+      darkModeToggle.setAttribute('aria-label', 'Switch to dark mode');
     } else {
       // Sun icon for dark mode (clicking will switch to light)
       iconSvg.innerHTML = `
@@ -199,13 +220,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <path d="m6.34 17.66-1.41 1.41"></path>
         <path d="m19.07 4.93-1.41 1.41"></path>
       `;
+      darkModeToggle.setAttribute('title', 'Switch to light mode');
+      darkModeToggle.setAttribute('aria-label', 'Switch to light mode');
     }
   }
   
   // Modal functionality for previous roles
   const modal = document.getElementById('roles-modal');
   const modalOpenBtn = document.querySelector('.previous-roles-btn');
-  const modalCloseBtn = document.querySelector('.modal-close');
+  const modalCloseBtn = modal.querySelector('.modal-close');
   
   // Open modal
   modalOpenBtn.addEventListener('click', () => {
@@ -235,12 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Add event listeners
-  const previousRolesBtn = document.querySelector(".previous-roles")
-  previousRolesBtn.addEventListener("click", () => {
-    alert("Previous roles would be shown here")
-  })
-
+  // Filter projects with the search input
   const filterInput = document.querySelector(".filter-input")
   filterInput.addEventListener("input", (e) => {
     const searchTerm = e.target.value.toLowerCase()
@@ -257,4 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
+
+  /* Social media modal functionality is now in socials.js */
 })
