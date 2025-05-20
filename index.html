@@ -197,7 +197,7 @@
 
     <!-- Footer -->
     <footer>
-      <button class="btn btn-ghost btn-small">
+      <button class="btn btn-ghost btn-small" id="socials-btn" onclick="document.getElementById('socials-modal').classList.add('show'); document.body.style.overflow = 'hidden';">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M7 17L17 7"></path>
           <path d="M7 7h10v10"></path>
@@ -220,6 +220,83 @@
     </div>
   </div>
 
+  <!-- Social Media Modal -->
+  <div id="socials-modal" class="modal" onclick="if(event.target === this) { this.classList.remove('show'); document.body.style.overflow = ''; }">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Connect With Me</h3>
+        <button class="modal-close" onclick="document.getElementById('socials-modal').classList.remove('show'); document.body.style.overflow = '';">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="socials-grid">
+          <a href="https://github.com/ArinGitPort" class="social-media-link" target="_blank">
+            <div class="social-media-icon">
+              <img src="assets/github.png" alt="GitHub">
+            </div>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/allen-lazatin-834710279/" class="social-media-link" target="_blank">
+            <div class="social-media-icon">
+              <img src="assets/linkedin.png" alt="LinkedIn">
+            </div>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://x.com/rndmflour" class="social-media-link" target="_blank">
+            <div class="social-media-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </div>
+            <span>Twitter</span>
+          </a>
+<a href="https://web.facebook.com/inkanraiko" class="social-media-link" target="_blank">
+  <div class="social-media-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+    </svg>
+  </div>
+  <span>Facebook</span>
+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+  <script src="socials.js"></script>
+  <script>
+    // Inline script to handle social media modal as a fallback
+    window.addEventListener('load', function() {
+      const socialsBtn = document.getElementById('socials-btn');
+      const socialsModal = document.getElementById('socials-modal');
+      
+      if (socialsBtn && socialsModal) {
+        const socialsCloseBtn = socialsModal.querySelector('.modal-close');
+        
+        // Open socials modal
+        socialsBtn.addEventListener('click', function() {
+          console.log('Social button clicked (inline)');
+          socialsModal.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        });
+        
+        // Close socials modal with the X button
+        if (socialsCloseBtn) {
+          socialsCloseBtn.addEventListener('click', function() {
+            socialsModal.classList.remove('show');
+            document.body.style.overflow = '';
+          });
+        }
+        
+        // Close socials modal when clicking outside the content
+        socialsModal.addEventListener('click', function(e) {
+          if (e.target === socialsModal) {
+            socialsModal.classList.remove('show');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
