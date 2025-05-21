@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Allen | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
   <div class="stars-container">
@@ -24,7 +24,8 @@
         <h1>ArinGitPort</h1>
       </div>
       <div class="header-actions">
-        <div class="header-controls">
+        <div class="header-controls">            
+          <button id="contact-btn" class="btn btn-ghost">Contact Me</button>
           <button id="dark-mode-toggle" class="btn btn-icon" aria-label="Toggle dark mode">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
@@ -219,6 +220,38 @@
       </div>
     </div>
   </div>
+  <!-- Contact Form Modal -->
+  <div id="contact-modal" class="modal" onclick="if(event.target === this) { this.classList.remove('show'); document.body.style.overflow = ''; }">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Contact Me</h3>
+        <button class="modal-close" onclick="document.getElementById('contact-modal').classList.remove('show'); document.body.style.overflow = '';">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="form-alert-container"></div>        <form id="contact-form" novalidate>
+          <div class="form-group mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Please enter your name" required>
+            <div class="invalid-feedback">Please enter your name</div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Please enter a valid email address" required>
+            <div class="invalid-feedback">Please enter a valid email address</div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Please enter your message" required></textarea>
+            <div class="invalid-feedback">Please enter your message</div>
+          </div>          <div class="form-group d-grid gap-2 mt-4">
+            <button type="submit" class="btn btn-primary btn-3d-style">
+              <span class="button_top">Send Message</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- Social Media Modal -->
   <div id="socials-modal" class="modal" onclick="if(event.target === this) { this.classList.remove('show'); document.body.style.overflow = ''; }">
@@ -259,16 +292,45 @@
       </div>
     </div>
   </div>
-
   <script src="script.js"></script>
   <script src="socials.js"></script>
+  <script src="contact.js"></script>
   <script>
     // Inline script to handle social media modal as a fallback
     window.addEventListener('load', function() {
+      console.log('Window loaded');
+      
+      // Debug helper for contact button
+      const contactBtn = document.getElementById('contact-btn');
+      if (contactBtn) {
+        console.log('Contact button found in inline script');
+        // Add an additional click handler for testing
+        contactBtn.addEventListener('click', function() {
+          console.log('Contact button clicked from inline script');
+          document.getElementById('contact-modal').classList.add('show');
+          document.body.style.overflow = 'hidden';
+        });
+      } else {
+        console.error('Contact button not found!');
+      }
+      
+      // Debug helper for contact form submit button
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        console.log('Contact form found');
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        if (submitButton) {
+          console.log('Submit button found');
+        } else {
+          console.error('Submit button not found!');
+        }
+      }
+      
       const socialsBtn = document.getElementById('socials-btn');
       const socialsModal = document.getElementById('socials-modal');
       
       if (socialsBtn && socialsModal) {
+        console.log('Socials button found');
         const socialsCloseBtn = socialsModal.querySelector('.modal-close');
         
         // Open socials modal
