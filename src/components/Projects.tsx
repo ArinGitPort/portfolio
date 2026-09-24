@@ -37,18 +37,18 @@ export function Projects() {
       <div className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-3">
         {projects.map((project) => (
           <article
-            className="group min-w-0 overflow-hidden rounded-lg border border-line bg-surface animate-[fade-in_1.4s_ease-out] transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-[5px] hover:shadow-[0_5px_15px_var(--shadow)]"
+            className="group min-w-0 overflow-hidden rounded-lg border border-line bg-surface animate-[fade-in_1.4s_ease-out] transition-all duration-300 ease-out hover:-translate-y-[5px] hover:shadow-[0_5px_15px_var(--shadow)]"
             key={project.title}
           >
             <div className="relative h-[7.5rem] overflow-hidden">
               {project.image ? (
-                <img className="size-full max-w-full object-cover transition-transform duration-500 group-hover:scale-105" src={project.image} alt="" />
+                <img className="size-full max-w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" src={project.image} alt="" />
               ) : (
                 <div className="flex h-full items-center justify-center text-[1rem] font-bold" style={{ background: project.cover }}>
                   {project.title}
                 </div>
               )}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100">
                 <a
                   href={project.link}
                   target="_blank"
@@ -76,7 +76,7 @@ export function Projects() {
               <p className="mb-2.5 text-left text-[0.76rem] leading-4 text-subtle transition-colors duration-500">{project.description}</p>
               <div className="flex flex-wrap justify-start gap-1.5">
                 {project.technologies.map((technology) => (
-                  <span className="rounded-full border border-line bg-chip px-2 py-0.75 text-[10px] text-subtle transition-[transform,background-color] duration-200 hover:-translate-y-0.5 hover:bg-hover" key={technology}>
+                  <span className="rounded-full border border-line bg-chip px-2 py-0.75 text-[10px] text-subtle transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-hover" key={technology}>
                     {technology}
                   </span>
                 ))}

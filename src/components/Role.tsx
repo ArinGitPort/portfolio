@@ -31,7 +31,7 @@ export function Role({ onExperience }: { onExperience: () => void }) {
             <TooltipTrigger asChild>
               <a
                 href={link.href}
-                className="flex size-6 items-center justify-center rounded-full bg-icon text-foreground transition-[transform,background-color] duration-200 hover:-translate-y-[3px] hover:bg-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                className="flex size-6 items-center justify-center rounded-full bg-icon text-foreground transition-all duration-200 ease-out hover:-translate-y-[3px] hover:bg-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}

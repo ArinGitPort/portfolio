@@ -36,10 +36,10 @@ function ToolGrid({ tools }: { tools: { name: string; Icon: IconType }[] }) {
           <TooltipTrigger asChild>
             <button
               type="button"
-              className="group flex min-w-0 animate-[fade-in_1.6s_ease-out] cursor-pointer appearance-none flex-col items-center gap-2 border-0 bg-transparent p-0 font-[inherit] text-muted transition-[transform,color] duration-300 hover:-translate-y-[5px] hover:text-foreground focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+              className="group flex min-w-0 animate-[fade-in_1.6s_ease-out] cursor-pointer appearance-none flex-col items-center gap-2 border-0 bg-transparent p-0 font-[inherit] text-muted transition-all duration-300 ease-out hover:-translate-y-[5px] hover:text-foreground focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
               aria-label={name}
             >
-              <span className="flex size-12 items-center justify-center rounded-lg bg-icon transition-[background-color,transform,box-shadow] duration-300 group-hover:scale-110 group-hover:bg-hover group-hover:shadow-[0_0_15px_var(--shadow)]">
+              <span className="flex size-12 items-center justify-center rounded-lg bg-icon transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-hover group-hover:shadow-[0_0_15px_var(--shadow)]">
                 <Icon className="size-[1.375rem] shrink-0 text-foreground" aria-hidden="true" focusable="false" />
               </span>
               <span className="flex min-h-8 w-full items-start justify-center text-center text-[11px] leading-4 text-muted transition-colors duration-500 group-hover:text-foreground">{name}</span>
@@ -64,10 +64,10 @@ export function Technologies() {
                 <TooltipTrigger asChild>
                   <button
                     type="button"
-                    className="group flex animate-[fade-in_1.6s_ease-out] cursor-pointer appearance-none flex-col items-center gap-2 border-0 bg-transparent p-0 font-[inherit] text-muted transition-[transform,color] duration-300 hover:-translate-y-[5px] hover:text-foreground focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                    className="group flex animate-[fade-in_1.6s_ease-out] cursor-pointer appearance-none flex-col items-center gap-2 border-0 bg-transparent p-0 font-[inherit] text-muted transition-all duration-300 ease-out hover:-translate-y-[5px] hover:text-foreground focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
                     aria-label={name}
                   >
-                    <span className="flex size-12 items-center justify-center rounded-lg bg-icon transition-[background-color,transform,box-shadow] duration-300 group-hover:scale-110 group-hover:bg-hover group-hover:shadow-[0_0_15px_var(--shadow)]">
+                    <span className="flex size-12 items-center justify-center rounded-lg bg-icon transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-hover group-hover:shadow-[0_0_15px_var(--shadow)]">
                       <Icon className="size-[1.375rem] shrink-0 text-foreground" aria-hidden="true" focusable="false" />
                     </span>
                     <span className="block w-full text-center text-[11px] leading-4 text-muted transition-colors duration-500 group-hover:text-foreground">{name}</span>
