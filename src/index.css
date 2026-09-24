@@ -47,16 +47,28 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
 
   body {
     min-height: 100vh;
     overflow-x: hidden;
+    overflow-y: auto;
     background: var(--background);
     color: var(--foreground);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     line-height: 1.5;
     transition: background-color 500ms ease, color 500ms ease;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   button, a { -webkit-tap-highlight-color: transparent; }
@@ -65,6 +77,27 @@
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(-80px, 32px, 0) scale(0.75);
+  }
+  20% {
+    transform: translate3d(40px, -44px, 0) scale(1.15);
+  }
+  40% {
+    transform: translate3d(90px, 18px, 0) scale(0.92);
+  }
+  60% {
+    transform: translate3d(-24px, -72px, 0) scale(1.22);
+  }
+  80% {
+    transform: translate3d(-90px, 36px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(60px, 80px, 0) scale(0.82);
+  }
 }
 
 @keyframes scale-in {

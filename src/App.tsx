@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import type { IconType } from "react-icons"
 import { FaLinkedin } from "react-icons/fa"
+import { FiArrowUpRight } from "react-icons/fi"
 import { SiFacebook, SiGithub, SiX } from "react-icons/si"
 import { ContactForm } from "@/components/ContactForm"
 import { ExperienceTree } from "@/components/ExperienceTree"
@@ -56,20 +57,21 @@ export default function App() {
   return (
     <>
       <Stars />
-      <div className="relative z-1 mx-auto max-w-[800px] px-4 py-8">
+      <div className="relative z-1 mx-auto flex min-h-screen max-w-[680px] flex-col px-4 py-7 sm:px-5 sm:py-8">
         <Header onContact={() => setContactOpen(true)} onTheme={() => setTheme(theme === "dark" ? "light" : "dark")} />
-        <main>
+        <main className="flex-1">
           <Profile />
           <Role onExperience={() => setExperienceOpen(true)} />
           <Projects />
           <Technologies />
         </main>
-        <footer className="flex animate-[fade-in_1.8s_ease-out] justify-center">
+        <footer className="mt-auto flex animate-[fade-in_1.8s_ease-out] justify-center pt-2">
           <button
             className="inline-flex cursor-pointer items-center gap-2 rounded-md px-2 py-1 text-xs text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
             onClick={() => setSocialsOpen(true)}
           >
-            ↗ <span>my socials</span>
+            <FiArrowUpRight className="size-4" aria-hidden="true" />
+            <span>my socials</span>
           </button>
         </footer>
       </div>

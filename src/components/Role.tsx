@@ -11,17 +11,17 @@ const socialLinks = [
 
 export function Role({ onExperience }: { onExperience: () => void }) {
   return (
-    <section className="mb-12 animate-[fade-in_1.2s_ease-out]" aria-labelledby="role-heading">
-      <div className="mb-2 flex flex-col items-start justify-between gap-2 sm:flex-row">
-        <h2 id="role-heading" className="text-xl font-bold text-foreground transition-colors duration-500">Aspiring Network Engineer</h2>
-        <div className="flex shrink-0 items-center gap-1 rounded border border-line bg-surface px-2 py-1 text-xs transition-colors duration-500">
-          <span className="size-3 animate-[pulse-status_2s_infinite] rounded-xs bg-green-500" aria-hidden="true" />
+    <section className="mb-9 animate-[fade-in_1.2s_ease-out]" aria-labelledby="role-heading">
+      <div className="mb-3 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+        <h2 id="role-heading" className="text-[1.36rem] font-bold text-foreground transition-colors duration-500">Aspiring Network Engineer</h2>
+        <div className="flex shrink-0 items-center gap-1.5 rounded border border-line bg-surface px-2.5 py-1.5 text-[10.5px] transition-colors duration-500">
+          <span className="size-2.5 animate-[pulse-status_2s_infinite] rounded-xs bg-green-500" aria-hidden="true" />
           <span>NU Baliwag</span>
           <span className="text-muted">BSIT</span>
         </div>
       </div>
-      <p className="mb-4 text-sm text-muted transition-colors duration-500">INTERNSHIP AVAILABILITY · NOVEMBER 2026</p>
-      <p className="mb-4 text-sm text-subtle transition-colors duration-500">
+      <p className="mb-3 text-[10px] uppercase tracking-[0.12em] text-muted transition-colors duration-500">INTERNSHIP AVAILABILITY · NOVEMBER 2026</p>
+      <p className="mb-4 text-[0.9rem] leading-5 text-subtle transition-colors duration-500">
         Building and troubleshooting practical network labs involving VLANs, routing, IPv4 and IPv6, DHCP, NAT, and network services.
       </p>
 
@@ -50,8 +50,8 @@ export function Role({ onExperience }: { onExperience: () => void }) {
         ))}
       </div>
 
-      <Button className="animate-[fade-in_1.5s_ease-out] px-0 py-1 text-xs" onClick={onExperience}>
-        <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <Button className="animate-[fade-in_1.5s_ease-out] px-0 py-1 text-[11px]" onClick={onExperience}>
+        <svg className="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <path d="m6 9 6 6 6-6" />
         </svg>
         <span>Previous experience</span>
