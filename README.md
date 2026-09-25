@@ -1,6 +1,6 @@
 # Portfolio
 
-Allen Lazatin's portfolio, migrated to a component-based React and TypeScript application without changing the original visual design.
+migrated to a component-based React and TypeScript application without changing the original visual design.
 
 ## Stack
 
