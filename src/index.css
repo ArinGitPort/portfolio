@@ -88,16 +88,16 @@
 
 .stars-motion {
   position: absolute;
-  inset: -4px;
+  inset: -12px;
   /* Prepare just one shared layer; individual particles remain static. */
   transform: translate3d(0, 0, 0);
   will-change: transform;
-  animation: star-drift 1200s linear infinite alternate;
+  animation: star-drift 120s linear infinite alternate;
 }
 
 @keyframes star-drift {
   from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(1px, -1px, 0); }
+  to { transform: translate3d(8px, -6px, 0); }
 }
 
 @keyframes scale-in {

@@ -3,10 +3,10 @@ import { useEffect, useRef } from "react"
 // Stable positions keep the decoration unchanged across renders and theme switches.
 const stars = Array.from({ length: 16 }, (_, id) => ({
   id,
-  size: 1 + (id % 3) * 0.35,
+  size: 1.25 + (id % 3) * 0.35,
   top: ((id * 0.61803398875 + 0.17) % 1) * 100,
   left: ((id * 0.41421356237 + 0.09) % 1) * 100,
-  opacity: 0.16 + (id % 4) * 0.045,
+  opacity: 0.38 + (id % 4) * 0.055,
 }))
 
 export function Stars() {
